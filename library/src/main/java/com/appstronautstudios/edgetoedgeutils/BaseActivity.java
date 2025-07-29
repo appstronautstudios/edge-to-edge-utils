@@ -1,4 +1,4 @@
-package com.appstronaut.edgetoedgeutils;
+package com.appstronautstudios.edgetoedgeutils;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -19,8 +19,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
-
-import com.appstronautstudios.edgetoedgeutils.R;
 
 public class BaseActivity extends AppCompatActivity {
     @Override

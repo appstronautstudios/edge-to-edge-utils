@@ -2,7 +2,7 @@ package com.appstronautstudios.edgetoedgeutilsdemo;
 
 import android.os.Bundle;
 
-import com.appstronaut.edgetoedgeutils.BaseActivity;
+import com.appstronautstudios.edgetoedgeutils.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 
