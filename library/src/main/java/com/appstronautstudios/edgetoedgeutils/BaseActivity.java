@@ -52,26 +52,46 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void applyInsets(View root) {
+        final View statusScrim = root.findViewById(R.id.statusBarScrim);
+        final View navScrim = root.findViewById(R.id.navigationBarScrim);
+        final View content = root.findViewById(R.id.content_container);
+
         ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            Insets sysBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            final Insets sys = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            final Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime());
+            final boolean imeVisible = ime.bottom > 0;
 
-            View statusScrim = v.findViewById(R.id.statusBarScrim);
-            View navScrim = v.findViewById(R.id.navigationBarScrim);
-
+            // --- Top scrim reserves status bar space ---
             if (statusScrim != null) {
                 ViewGroup.LayoutParams lp = statusScrim.getLayoutParams();
-                lp.height = sysBars.top;
+                lp.height = sys.top;
                 statusScrim.setLayoutParams(lp);
+                statusScrim.setVisibility(sys.top > 0 ? View.VISIBLE : View.GONE);
             }
 
+            // --- Bottom scrim reserves nav bar space when IME hidden ---
             if (navScrim != null) {
                 ViewGroup.LayoutParams lp = navScrim.getLayoutParams();
-                lp.height = sysBars.bottom;
+                lp.height = imeVisible ? 0 : sys.bottom; // hide when keyboard shown
                 navScrim.setLayoutParams(lp);
+                navScrim.setVisibility((!imeVisible && sys.bottom > 0) ? View.VISIBLE : View.GONE);
             }
 
+            // --- Content padding: no top (scrim already reserves it); bottom = IME when shown ---
+            if (content != null) {
+                int left = sys.left;                  // for cutouts/gestures
+                int top = 0;                         // scrim handles status area
+                int right = sys.right;
+                int bottom = imeVisible ? ime.bottom : 0; // nav scrim handles nav when IME hidden
+                content.setPadding(left, top, right, bottom);
+            }
+
+            // We handled everything here; don't let children double-apply.
             return WindowInsetsCompat.CONSUMED;
         });
+
+        // Make sure insets flow after the view is attached
+        root.post(() -> ViewCompat.requestApplyInsets(root));
     }
 
     public void setStatusBarScrimColor(@ColorInt int color) {

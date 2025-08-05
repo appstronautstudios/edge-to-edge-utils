@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edge to Edge example"
             android:textSize="24sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notice how it stretches to the top and bottom of the screen!" />
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis dolor id lectus placerat euismod. Aenean at ante et lacus tincidunt facilisis. Donec egestas laoreet ullamcorper. Mauris hendrerit nisl et erat consequat dignissim in eu lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec nibh felis, ornare nec sapien nec, viverra dignissim dolor. Mauris nec malesuada dolor. Nunc at purus augue. Mauris facilisis consequat ante, eget elementum velit auctor in. Aliquam semper, ligula et commodo hendrerit, libero enim feugiat ante, sed hendrerit neque purus et nisl.\n\n
+            Nulla sit amet elementum nunc. Maecenas non elit vel est ullamcorper viverra quis tempor justo. Nulla sit amet facilisis urna, eu consequat ligula. Donec tempus tortor ullamcorper, faucibus arcu vitae, suscipit sem. Maecenas non urna porta, vestibulum neque vitae, fermentum elit. Nullam pellentesque velit vel turpis dapibus, et consequat mauris eleifend. Nam vestibulum ligula id mauris hendrerit, nec feugiat neque fermentum. Pellentesque eleifend in magna at consequat. Etiam posuere, ligula a viverra fermentum, libero libero auctor enim, eget condimentum lectus augue ut erat. Nunc suscipit turpis at turpis venenatis rhoncus. Aenean aliquam faucibus odio, in sagittis dolor posuere non. Mauris sed lorem sagittis, pulvinar sapien nec, sollicitudin mi.\n\n
+            Praesent malesuada ut nisl ac aliquet. Fusce eget convallis odio. Aliquam id metus non ligula convallis tempor. Phasellus auctor nisi a vehicula cursus. Vestibulum tempor mauris purus, ut vestibulum lectus finibus quis. Suspendisse gravida at ante dictum pellentesque. In rhoncus porttitor convallis. Donec non nunc nec nisl maximus lobortis ut eu metus. Proin congue id dui in ultricies. Donec vehicula, lorem id finibus suscipit, odio tellus cursus nisi, sed aliquet velit turpis volutpat diam. Nunc ac est quis est volutpat pretium.\n\n
+            Donec sit amet lacus id enim tempus hendrerit vel sed enim. Ut venenatis vestibulum leo, sit amet tincidunt ligula semper sed. Nam efficitur velit nec cursus luctus. Nullam sed tellus mi. Maecenas eget egestas mauris. Aliquam ultricies, massa quis ornare vulputate, sem lacus sollicitudin nunc, et convallis mauris orci ac mauris. Suspendisse lacinia condimentum eleifend. Aenean non dictum ante. Maecenas vitae facilisis ligula. Maecenas eu rutrum urna. Praesent id fringilla ipsum. Cras mollis eget metus finibus sagittis. Vestibulum ac nisl quis purus pellentesque maximus. Aliquam efficitur ultricies volutpat." />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:ellipsize="none"
+            android:gravity="top|start"
+            android:hint="Enter text"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:overScrollMode="always"
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false" />
     </LinearLayout>
-</RelativeLayout>
+</ScrollView>
